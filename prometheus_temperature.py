@@ -58,9 +58,10 @@ def read_w1(onewire_temperature_c, sensor_mappings):
     for (directory, dirs, files) in os.walk(base_dir):
         for dev_dir in dirs:
             try:
-                id_file = open('{0}/{1}/id'.format(base_dir, dev_dir), 'r')
-                id_val = id_file.read().encode('hex').upper()
-                id_file.close()
+                #id_file = open('{0}/{1}/id'.format(base_dir, dev_dir), 'r')
+                #id_val = id_file.read().encode('hex').upper()
+		id_val = dev_dir
+                #id_file.close()
                 therm_file = open('{0}/{1}/w1_slave'.format(base_dir, dev_dir), 'r')
                 path_mappings[id_val] = therm_file
             except (OSError, IOError) as e:
